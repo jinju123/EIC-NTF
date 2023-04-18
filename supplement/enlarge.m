@@ -1,0 +1,11 @@
+I = imread('smooth.jpg');
+I = double(I);
+I = I/max(I(:));
+%I = Ohsi(:,:,band);
+I1 = ShowEnlargedRectangle(I,[88,131], [138,152], 8, 1);
+%I1 = ShowEnlargedRectangle(I,[2,3], [10,20], 5, 1);
+figure;imshow(I1,'border','tight','initialmagnification','fit');
+set(gcf,'Units','centimeters');
+screenposition = get(gcf,'Position');
+set(gcf,'PaperPosition',[0 0 screenposition([4,4])],'PaperSize',screenposition([4,4]));
+print('test.pdf','-dpdf');
